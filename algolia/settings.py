@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -130,6 +130,12 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
+}
+ALGOLIA = {
+    'APPLICATION_ID': 'YourApplicationID',
+    'API_KEY': '',
+    'AUTO_INDEXING': True,
+    'INDEX_PREFIX': 'dev_',
 }
 
 try:
