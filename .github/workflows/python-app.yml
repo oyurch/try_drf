@@ -17,31 +17,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      #----------------------------------------------
-      #       check-out repo and set-up python
-      #----------------------------------------------
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up python
-        id: setup-python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      #----------------------------------------------
-      # install dependencies if cache does not exist
-      #----------------------------------------------
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      #----------------------------------------------
-      #    run test suite and output coverage file
-      #----------------------------------------------
-#      - name: Test with pytest
-#        run: pytest --cov=. --cov-report=xml tests/
-#      - name: Adjust coverage report paths
-#        run: sed -i 's|<source>.*</source>|<source>.</source>|g' coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
